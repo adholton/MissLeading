@@ -4,11 +4,11 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import promise from "redux-promise";
-
+import SearchPage from "./components/search-page"
 import reducers from "./reducers";
 import Home from "./components/home";
-import SearchPage from "./components/search-page";
-import PassingMovies from "./components/passing-movies-page";
+// import SearchPage from "./components/search-page";
+// import PassingMovies from "./components/passing-movies-page";
 
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -24,8 +24,8 @@ ReactDOM.render(
       <div>
         <Switch>
           <Route path="/search" component={SearchPage} />
-          {/* <Route path="/passing" component={PassingMovies} />
-          <Route exact path="/" component={Home} /> */}
+          {/* <Route path="/passing" component={PassingMovies} /> */}
+          <Route exact path="/" component={Home} />
         </Switch>
       </div>
     </BrowserRouter>,
