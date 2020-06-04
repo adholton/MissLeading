@@ -7,7 +7,6 @@ import promise from "redux-promise";
 import SearchPage from "./components/search-page"
 import reducers from "./reducers";
 import Home from "./components/home";
-// import SearchPage from "./components/search-page";
 // import PassingMovies from "./components/passing-movies-page";
 
 import 'bootstrap/dist/css/bootstrap.css'

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-//import { connect } from "react-redux";
-//import { bindActionCreators } from "redux";
-//import { fetchMovies } from "../actions";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchMovies } from "../actions";
 import { Link } from "react-router-dom";
 
 class SearchPage extends Component {
@@ -25,6 +25,7 @@ class SearchPage extends Component {
 
     // We need to go and fetch movie data based on the search term
     // the state at this point is already updated from event handler of the user typing, so we invoke the fetch movies function (making the api call) and then resetting the state back back to it's original state (clearing term)
+    console.log(this.state.term);
     this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
   }
@@ -58,16 +59,16 @@ class SearchPage extends Component {
 
 export default SearchPage;
 
-// function mapStateToProps({ movies }, ownProps) {
-//   return { movie: movies[ownProps.match.params.id] };
-// }
+function mapStateToProps({ movies }, ownProps) {
+  return { movie: movies[ownProps.match.params.id] };
+}
 
 
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators({ fetchMovies }, dispatch);
-// }
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchMovies }, dispatch);
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
 
 
 
