@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchMovies } from "../actions";
 import { Link } from "react-router-dom";
+import _ from "lodash";
 
 class SearchPage extends Component {
   constructor(props) {
@@ -14,10 +15,12 @@ class SearchPage extends Component {
 
     this.onInputChange = this.onInputChange.bind(this);
     this.onSearchButtonClick = this.onSearchButtonClick.bind(this);
+    this.renderMovies = this.renderMovies.bind(this);
   }
 
   onInputChange(event) {
     this.setState({ term: event.target.value });
+    console.log(this.state);
   }
 
   onSearchButtonClick(event) {
@@ -30,7 +33,44 @@ class SearchPage extends Component {
     this.setState({ term: '' });
   }
 
+  renderMovies(movieData) {
+    console.log('Inside render movies: ',movieData);
+  //  return (
+  //    <li className="list-group-item" key={movieData.imdbid}>{movieData.title}</li>
+  //  )
+   
+
+
+    
+     // return (
+        // <li className="list-group-item" key={movie.id}>
+        //   {/* <Link to={`/posts/${post.id}`}> */}
+        //     {movie.title}
+        //   {/* </Link> */}
+        //   {/* <button type="button" id={post.id} className="btn btn-primary ml-5" onClick={this.onClickDelete}>Delete</button> */}
+        // </li>
+      // );
+     // )
+  }
+/*
+rating: 3
+date: "2008-07-21 00:00:00"
+id: 58
+dubious: "0"
+year: 2003
+submitterid: 1
+imdbid: "0234215"
+visible: "1"
+title: "Matrix Reloaded, The"
+
+
+*/
+
+
   render() {
+    const {movies} = this.props;
+    console.log(movies);
+
     return (
       <div>
         <h1 className="heading">Can You See Her?</h1>
@@ -48,20 +88,67 @@ class SearchPage extends Component {
           </span>
         </form>
         <Link to="/">Back to Homepage</Link>
-        {/* <h3>{post.title}</h3>
-        <h6>Categories: {post.categories}</h6>
-        <p>{post.content}</p> */}
+        {/* <ul className="list-group">
+          {this.renderMovies()}
+        </ul> */}
+        <ul className="list-group">{this.props.movies.map(this.renderMovies)}</ul>
       </div>
 
     )
   }
 }
 
-export default SearchPage;
+/*
+class WeatherList extends Component {
+  renderWeather(cityData) {
+    console.log('cityData in weatherlist', cityData)
+    const name = cityData.city.name;
+    const temps = cityData.list.map(weather => weather.main.temp);
+    const pressures = cityData.list.map(weather => weather.main.pressure);
+    const humidities = cityData.list.map(weather => weather.main.humidity);
+    console.log(temps,pressures,humidities)
+    return (
+      <tr key={cityData.city.id}>
+        <td>{name}</td>
+        <td><Chart data={temps} color="orange" units="F" /></td>
+        <td><Chart data={pressures} color="green" units="hPa" /></td>
+        <td><Chart data={humidities} color="black" units="%" /></td>
+      </tr>
+    );
+  }
 
-function mapStateToProps({ movies }, ownProps) {
-  return { movie: movies[ownProps.match.params.id] };
+  render() {
+    return (
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Temperature (K)</th>
+            <th>Pressure (hPa)</th>
+            <th>Humidity (%)</th>
+          </tr>
+        </thead>
+        <tbody>{this.props.weather.map(this.renderWeather)}</tbody>
+      </table>
+    );
+  }
 }
+
+function mapStateToProps({ weather }) {
+  return { weather };
+}
+*/
+
+// export default SearchPage;
+
+function mapStateToProps( {movies} ) {
+  console.log('Map state to props', movies);
+  return {movies}
+}
+
+// function mapStateToProps({ movies }, ownProps) {
+//   return { movie: movies[ownProps.match.params.id] };
+// }
 
 
 function mapDispatchToProps(dispatch) {

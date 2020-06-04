@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 //const API_KEY_MOVIEDB = 'ca63e741c6718e480cec9a3c6682d81c';
-const ROOT_URL_BT = `http://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
+//const ROOT_URL_BT = `http://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
 //const ROOT_URL_MOVIEDB = `https://api.themoviedb.org/3/find/tt${imdbID}?api_key=${API_KEY_MOVIEDB}&language=en-US&external_source=imdb_id`
 
 
@@ -15,13 +15,14 @@ https://api.themoviedb.org/3/find/tt0234215?api_key=a0c386237c296940bf5b772239aa
 
 */
 
+
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 
 // we only have one action in this project and it will be from this action that that we actually make the request to the API
 // we'll keep all our API info (url, api key, request promise) here in this action file
-// we're using the api key that was in the projectshift project so if it stops working we can go to openweathermap.org/api to get a new key
+
 export function fetchMovies(searchParam) {
-  const url = `http://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
+  const url = `https://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
   const request = axios.get(url);
   // at this point the request doesn't contain the returned api data yet, it's probably still in the pending state. We need a way to set our store state until AFTER the promise is fulfilled (when the api returns data). We only want to call the reducer when the data is returned, this is where applyMiddleware comes in (see the main index.js)
   //the payload is a promise (request)
