@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchMovies } from "../actions";
+import { fetchImage } from "../actions";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
@@ -9,7 +10,7 @@ class SearchPage extends Component {
   constructor(props) {
     super(props);
     //console.log(props);
-    //the props is an object that just contains the fetchMovies function 
+    //the props is an object that just contains the fetchMovies function
 
     this.state = { term: '' };
 
@@ -28,13 +29,15 @@ class SearchPage extends Component {
 
     // We need to go and fetch movie data based on the search term
     // the state at this point is already updated from event handler of the user typing, so we invoke the fetch movies function (making the api call) and then resetting the state back back to it's original state (clearing term)
-    console.log(this.state.term);
+    console.log(this.props.fetchImage(this.state.term));
+    this.props.fetchImage(this.state.term)
     this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
   }
 
 
   renderMovies() {
+
     return _.map(this.props.movies, movie => {
       return (
         <tr key={movie.id}>
@@ -42,8 +45,9 @@ class SearchPage extends Component {
           <td>{movie.rating}</td>
           <td>{movie.rating}</td>
           <td>{movie.rating}</td>
-          <button className="btn btn-primary">Add To My List</button>
+          <td><button className="btn btn-primary">Add To My List</button></td>
         </tr>
+
       );
     });
   }
@@ -60,8 +64,8 @@ class SearchPage extends Component {
   imdbid: "0234215"
   visible: "1"
   title: "Matrix Reloaded, The"
-  
-  
+
+
   */
 
 
@@ -156,11 +160,7 @@ function mapStateToProps(state) {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMovies }, dispatch);
+  return bindActionCreators({ fetchMovies, fetchImage }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
-
-
-
-

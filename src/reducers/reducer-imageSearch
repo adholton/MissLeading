@@ -1,0 +1,18 @@
+// import { FETCH_IMAGE } from "../actions/index";
+//
+// export default function(state1 = [], action) {
+//     console.log('Action', action)
+//     // console.log(state)
+//     switch (action.type) {
+//         case FETCH_IMAGE:
+//             //we never want to mutate the state, so we usually concat any new data and
+//             //we could have written return state.concat([action.payload.data]); but with destructuring we can write it below as..
+//
+//             console.log(action.payload.data);
+//
+//             return ([action.payload.data, ...state1]);
+//
+//         default:
+//             return state1;
+//     }
+// }
