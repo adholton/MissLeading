@@ -33,25 +33,18 @@ class SearchPage extends Component {
     this.setState({ term: '' });
   }
 
-  renderMovies(movieData) {
-    console.log('Inside render movies: ',movieData);
-  //  return (
-  //    <li className="list-group-item" key={movieData.imdbid}>{movieData.title}</li>
-  //  )
+
+  renderMovies() {
+    return _.map(this.props.movies, movie => {
+      return (
+        <li className="list-group-item" key={movie.id}>
+            <span>TITLE:{movie.title}</span><span>RATING:{movie.rating}</span>
+        </li>
+      );
+    });
+  }
    
 
-
-    
-     // return (
-        // <li className="list-group-item" key={movie.id}>
-        //   {/* <Link to={`/posts/${post.id}`}> */}
-        //     {movie.title}
-        //   {/* </Link> */}
-        //   {/* <button type="button" id={post.id} className="btn btn-primary ml-5" onClick={this.onClickDelete}>Delete</button> */}
-        // </li>
-      // );
-     // )
-  }
 /*
 rating: 3
 date: "2008-07-21 00:00:00"
@@ -87,11 +80,10 @@ title: "Matrix Reloaded, The"
               Search</button>
           </span>
         </form>
-        <Link to="/">Back to Homepage</Link>
-        {/* <ul className="list-group">
+        <ul className="list-group">
           {this.renderMovies()}
-        </ul> */}
-        <ul className="list-group">{this.props.movies.map(this.renderMovies)}</ul>
+        </ul>
+        <Link to="/">Back to Homepage</Link>
       </div>
 
     )
@@ -141,14 +133,10 @@ function mapStateToProps({ weather }) {
 
 // export default SearchPage;
 
-function mapStateToProps( {movies} ) {
-  console.log('Map state to props', movies);
-  return {movies}
+function mapStateToProps( state ) {
+  console.log('Inside mapStateToProps', state);
+  return {movies: state.movies}
 }
-
-// function mapStateToProps({ movies }, ownProps) {
-//   return { movie: movies[ownProps.match.params.id] };
-// }
 
 
 function mapDispatchToProps(dispatch) {
