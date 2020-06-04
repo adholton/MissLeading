@@ -3,24 +3,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
-// import { fetchPosts } from "../actions";
+
 
 class Home extends Component {
-  // componentDidMount() {//This is an example of one of React's lifecycle methods
-  //   this.props.fetchPosts();
-  // }
 
-  // renderSearch() {
-  //   return _.map(this.props.posts, post => {
-  //     return (
-  //       <li className="list-group-item" key={post.id}>
-  //         <Link to={`/posts/${post.id}`}>
-  //           {post.title}
-  //         </Link>
-  //       </li>
-  //     );
-  //   });
-  // }
 
   render() {
     return (
@@ -30,10 +16,10 @@ class Home extends Component {
           <Link className="btn btn-primary" to="/search">
             Search Movies
           </Link>
-          <Link className="btn btn-primary" to="/search">
+          <Link className="btn btn-primary" to="">
             Movies that Pass
           </Link>
-          <Link className="btn btn-primary" to="/search">
+          <Link className="btn btn-primary" to="/my-list">
             My List
           </Link>
         </div>
