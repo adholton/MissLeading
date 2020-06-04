@@ -15,7 +15,7 @@ https://api.themoviedb.org/3/find/tt0234215?api_key=a0c386237c296940bf5b772239aa
 //https://api.themoviedb.org/3/search/movie?api_key=ca63e741c6718e480cec9a3c6682d81c&query=lord+of+the+rings
 */
 
-export const FETCH_IMAGE = 'FETCH_IMAGE';
+export const ADD_MOVIE = 'ADD_MOVIE';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 
 // we only have one action in this project and it will be from this action that that we actually make the request to the API
@@ -39,6 +39,13 @@ export function fetchMovies(searchParam) {
     type: FETCH_MOVIES,
     payload: request
   };
+}
+
+export function addMovie(movie) {
+  return {
+    type: ADD_MOVIE,
+    payload: movie
+  }
 }
 
 

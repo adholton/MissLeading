@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+<<<<<<< HEAD
 import { fetchMovies } from "../actions";
 import { fetchImage } from "../actions";
+=======
+import { fetchMovies, addMovie } from "../actions";
+>>>>>>> 24eb3df03e49f45e1ab283a33b9e79a26351c15e
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
@@ -17,6 +21,7 @@ class SearchPage extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSearchButtonClick = this.onSearchButtonClick.bind(this);
     this.renderMovies = this.renderMovies.bind(this);
+   // this.addMovie = this.addMovie.bind(this);
   }
 
   onInputChange(event) {
@@ -35,6 +40,11 @@ class SearchPage extends Component {
     this.setState({ term: '' });
   }
 
+  // addMovie(movie) {
+  //   console.log('Inside add movie')
+  //   console.log(movie)
+  // }
+
 
   renderMovies() {
 
@@ -45,7 +55,7 @@ class SearchPage extends Component {
           <td>{movie.rating}</td>
           <td>{movie.rating}</td>
           <td>{movie.rating}</td>
-          <td><button className="btn btn-primary">Add To My List</button></td>
+          <td><button className="btn btn-primary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
         </tr>
 
       );
@@ -104,52 +114,15 @@ class SearchPage extends Component {
           <tbody>{this.renderMovies()}</tbody>
         </table>
         <Link to="/">Back to Homepage</Link>
+        <Link to="/my-list">View My List</Link>
       </div>
 
     )
   }
 }
 
-/*
-class WeatherList extends Component {
-  renderWeather(cityData) {
-    console.log('cityData in weatherlist', cityData)
-    const name = cityData.city.name;
-    const temps = cityData.list.map(weather => weather.main.temp);
-    const pressures = cityData.list.map(weather => weather.main.pressure);
-    const humidities = cityData.list.map(weather => weather.main.humidity);
-    console.log(temps,pressures,humidities)
-    return (
-      <tr key={cityData.city.id}>
-        <td>{name}</td>
-        <td><Chart data={temps} color="orange" units="F" /></td>
-        <td><Chart data={pressures} color="green" units="hPa" /></td>
-        <td><Chart data={humidities} color="black" units="%" /></td>
-      </tr>
-    );
-  }
 
-  render() {
-    return (
-      <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>City</th>
-            <th>Temperature (K)</th>
-            <th>Pressure (hPa)</th>
-            <th>Humidity (%)</th>
-          </tr>
-        </thead>
-        <tbody>{this.props.weather.map(this.renderWeather)}</tbody>
-      </table>
-    );
-  }
-}
 
-function mapStateToProps({ weather }) {
-  return { weather };
-}
-*/
 
 // export default SearchPage;
 
@@ -160,7 +133,7 @@ function mapStateToProps(state) {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMovies, fetchImage }, dispatch);
+  return bindActionCreators({ fetchMovies, addMovie }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);
