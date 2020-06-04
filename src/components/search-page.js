@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-<<<<<<< HEAD
-import { fetchMovies } from "../actions";
-import { fetchImage } from "../actions";
-=======
+// import { fetchImage } from "../actions";
+
 import { fetchMovies, addMovie } from "../actions";
->>>>>>> 24eb3df03e49f45e1ab283a33b9e79a26351c15e
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
@@ -34,8 +31,8 @@ class SearchPage extends Component {
 
     // We need to go and fetch movie data based on the search term
     // the state at this point is already updated from event handler of the user typing, so we invoke the fetch movies function (making the api call) and then resetting the state back back to it's original state (clearing term)
-    console.log(this.props.fetchImage(this.state.term));
-    this.props.fetchImage(this.state.term)
+    // console.log(this.props.fetchImage(this.state.term));
+    // this.props.fetchImage(this.state.term)
     this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
   }

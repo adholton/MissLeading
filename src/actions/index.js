@@ -20,15 +20,15 @@ export const FETCH_MOVIES = 'FETCH_MOVIES';
 
 // we only have one action in this project and it will be from this action that that we actually make the request to the API
 // we'll keep all our API info (url, api key, request promise) here in this action file
-export function fetchImage(searchParam) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=ca63e741c6718e480cec9a3c6682d81c&query=${searchParam}`;
-  const request = axios.get(url);
-
-  return {
-    type: FETCH_IMAGE,
-    payload: request
-  };
-}
+// export function fetchImage(searchParam) {
+//   const url = `https://api.themoviedb.org/3/search/movie?api_key=ca63e741c6718e480cec9a3c6682d81c&query=${searchParam}`;
+//   const request = axios.get(url);
+//
+//   return {
+//     type: FETCH_IMAGE,
+//     payload: request
+//   };
+// }
 
 export function fetchMovies(searchParam) {
   const url = `https://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
