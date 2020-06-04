@@ -5,7 +5,7 @@ import axios from "axios";
 //const ROOT_URL_MOVIEDB = `https://api.themoviedb.org/3/find/tt${imdbID}?api_key=${API_KEY_MOVIEDB}&language=en-US&external_source=imdb_id`
 
 
-/* 
+/*
 Starting with Bechdel, searching by title, we'll get rating and imdb id
 http://bechdeltest.com/api/v1/getMoviesByTitle?title=matrix
 
@@ -15,11 +15,17 @@ https://api.themoviedb.org/3/find/tt0234215?api_key=a0c386237c296940bf5b772239aa
 
 */
 
-
+export const FETCH_IMAGE = 'FETCH_IMAGE';
 export const FETCH_MOVIES = 'FETCH_MOVIES';
 
 // we only have one action in this project and it will be from this action that that we actually make the request to the API
 // we'll keep all our API info (url, api key, request promise) here in this action file
+export function fetchImage(imbdId) {
+  const url = `https://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
+  return  {
+    console.log('id')
+  }
+};
 
 export function fetchMovies(searchParam) {
   const url = `https://bechdeltest.com/api/v1/getMoviesByTitle?title=${searchParam}`;
@@ -53,7 +59,7 @@ Example (for call to http://bechdeltest.com/api/v1/getMoviesByTitle?title=matrix
       */
 
 
-      /* 
+      /*
  Example call to MovieDB based on imdb id
 
       {
