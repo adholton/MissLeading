@@ -37,31 +37,36 @@ class SearchPage extends Component {
   renderMovies() {
     return _.map(this.props.movies, movie => {
       return (
-        <li className="list-group-item" key={movie.id}>
-            <span>TITLE:{movie.title}</span><span>RATING:{movie.rating}</span>
-        </li>
+        <tr key={movie.id}>
+          <td>{movie.title}</td>
+          <td>{movie.rating}</td>
+          <td>{movie.rating}</td>
+          <td>{movie.rating}</td>
+          <button className="btn btn-primary">Add To My List</button>
+        </tr>
       );
     });
   }
-   
-
-/*
-rating: 3
-date: "2008-07-21 00:00:00"
-id: 58
-dubious: "0"
-year: 2003
-submitterid: 1
-imdbid: "0234215"
-visible: "1"
-title: "Matrix Reloaded, The"
 
 
-*/
+
+  /*
+  rating: 3
+  date: "2008-07-21 00:00:00"
+  id: 58
+  dubious: "0"
+  year: 2003
+  submitterid: 1
+  imdbid: "0234215"
+  visible: "1"
+  title: "Matrix Reloaded, The"
+  
+  
+  */
 
 
   render() {
-    const {movies} = this.props;
+    const { movies } = this.props;
     console.log(movies);
 
     return (
@@ -80,9 +85,20 @@ title: "Matrix Reloaded, The"
               Search</button>
           </span>
         </form>
-        <ul className="list-group">
+        {/* <ul className="list-group">
           {this.renderMovies()}
-        </ul>
+        </ul> */}
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Two Female Characters</th>
+              <th>Female Conversation</th>
+              <th>Not About Men</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderMovies()}</tbody>
+        </table>
         <Link to="/">Back to Homepage</Link>
       </div>
 
@@ -133,9 +149,9 @@ function mapStateToProps({ weather }) {
 
 // export default SearchPage;
 
-function mapStateToProps( state ) {
+function mapStateToProps(state) {
   console.log('Inside mapStateToProps', state);
-  return {movies: state.movies}
+  return { movies: state.movies }
 }
 
 
