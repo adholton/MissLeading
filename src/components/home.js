@@ -14,42 +14,42 @@ class Home extends Component {
 
 
         <div className="navigation">
-          <br/>
-          <h1>Can You See Her?</h1>
-          <br/>
+          <br />
+          <h1>MissLeading Movies</h1>
+          <br />
 
-          <div className="opacity navigation">
+          <div className="opacity navigation col-md-8 offset-md-2">
             <h4>What is the Bechdel Test?</h4>
-            <br/>
+            <br />
             <p>The Bechdel test is a measure of the representation of women in fiction. It asks three simple questions...</p>
 
-              <p>Does the movie have two named female characters</p>
-              <p>Do these characters talk to one another?</p>
-              <p>Do they talk about something other than a man?</p>
-              <p>Let's get started! </p>
-
-          </div>
-
-          <br/>
-            <div className="col-md-8 offset-md-2">
+            <p>Does the movie have two named female characters</p>
+            <p>Do these characters talk to one another?</p>
+            <p>Do they talk about something other than a man?</p>
+            <p>Let's get started! </p>
+            <br />
+            <div>
               <Link className="btn btn-outline-light" to="/search">
                 Search Movies
               </Link>
               <div className="divider"></div>
-              <Link className="btn btn-outline-light" to="">
+              <Link className="btn btn-outline-light nav-button" to="">
                 Movies that Pass
               </Link>
               <div className="divider"></div>
-              <Link className="btn btn-outline-light" to="/my-list">
+              <Link className="btn btn-outline-light nav-button" to="/my-list">
                 My List
               </Link>
-                <div>
-                  <br/>
-                </div>
+              <div>
+                <br />
+              </div>
             </div>
           </div>
 
-          <br/>
+
+        </div>
+
+        <br />
 
 
 

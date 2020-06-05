@@ -4,6 +4,13 @@ import { bindActionCreators } from "redux";
 import { fetchMovies, addMovie, fetchImage } from "../actions";
 import { Link } from "react-router-dom";
 import _ from "lodash";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+//import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faCheckSquare, faCheckCircle, faTimes)
+
 class SearchPage extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +20,7 @@ class SearchPage extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSearchButtonClick = this.onSearchButtonClick.bind(this);
     this.renderMovies = this.renderMovies.bind(this);
-   // this.addMovie = this.addMovie.bind(this);
+    // this.addMovie = this.addMovie.bind(this);
   }
   onInputChange(event) {
     this.setState({ term: event.target.value });
@@ -33,53 +40,34 @@ class SearchPage extends Component {
   //   console.log(movie)
   // }
   renderMovies() {
-    console.log('image'+ this.props.images.data);
-    // const rating = this.props.movies.rating
+    console.log('Inside renderMovies, images:', this.props.images)
+    console.log('Inside renderMovies, movies:', this.props.movies)
+    console.log(this.props.images.data);
+    const rating = this.props.movies.rating
     return _.map(this.props.movies, movie => {
-
-      // if (rating === 0) {
-      //   return (<tr key={movie.id}>
-      //     <td>{movie.title}</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-      //   </tr>)
-      // } else if ( rating === 1) {
-      //   return (<tr key={movie.id}>
-      //     <td>{movie.title}</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-      //   </tr>)
-      // } else if ( rating === 2 ) {
-      //   return (<tr key={movie.id}>
-      //     <td>{movie.title}</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-      //   </tr>)
-      // } else if ( rating  === 3) {
-      //   return (<tr key={movie.id}>
-      //     <td>{movie.title}</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td>rating</td>
-      //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-      //   </tr>
-      // )
-      // }
-
-//this was the original return that works
-
+      if (movie.rating == "0") {
+        movie.icon1 = <FontAwesomeIcon icon={faTimes} size="lg" />
+        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="lg" />
+        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="lg" />
+      } else if (movie.rating == "1") {
+        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="lg" />
+        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="lg" />
+        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="lg" />
+      } else if (movie.rating == "2") {
+        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="lg" />
+        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="lg" />
+        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="lg" />
+      } else if (movie.rating == "3") {
+        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="lg"/>
+        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="lg"/>
+        movie.icon3 = <FontAwesomeIcon icon={faCheckCircle} size="lg"/>
+      }
       return (
         <tr key={movie.id}>
           <td>{movie.title}</td>
-          <td>{movie.rating}</td>
-          <td>{movie.rating}</td>
-          <td>{movie.rating}</td>
+          <td>{movie.icon1}</td>
+          <td>{movie.icon2}</td>
+          <td>{movie.icon3}</td>
           <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
         </tr>
       );
@@ -98,6 +86,45 @@ class SearchPage extends Component {
 
 
   */
+
+  // if (rating === 0) {
+  //   return (<tr key={movie.id}>
+  //     <td>{movie.title}</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
+  //   </tr>)
+  // } else if ( rating === 1) {
+  //   return (<tr key={movie.id}>
+  //     <td>{movie.title}</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
+  //   </tr>)
+  // } else if ( rating === 2 ) {
+  //   return (<tr key={movie.id}>
+  //     <td>{movie.title}</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
+  //   </tr>)
+  // } else if ( rating  === 3) {
+  //   return (<tr key={movie.id}>
+  //     <td>{movie.title}</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td>rating</td>
+  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
+  //   </tr>
+  // )
+  // }
+
+  //this was the original return that works
+
+
   render() {
     const { movies } = this.props;
     console.log(movies);
@@ -105,12 +132,12 @@ class SearchPage extends Component {
       <div>
         <div className="navigation">
 
-          <br/>
-            <h1 className="heading">Can You See Her?</h1>
-          <br/>
+          <br />
+          <h1 className="heading">MissLeading Movies</h1>
+          <br />
         </div>
 
-          <div className="col-md-8 offset-md-2 opacity">
+        <div className="col-md-8 offset-md-2 opacity">
           <h3>Search a movie here to see Bechdel Test Results</h3>
           <form onSubmit={this.onSearchButtonClick} className="input-group">
             <input
@@ -124,10 +151,8 @@ class SearchPage extends Component {
                 Search</button>
             </span>
           </form>
-          <br/>
-          {/* <ul className="list-group">
-            {this.renderMovies()}
-          </ul> */}
+          <br />
+
           <table className="table table-hover">
             <thead>
               <tr>
@@ -140,7 +165,7 @@ class SearchPage extends Component {
             <tbody>{this.renderMovies()}</tbody>
           </table>
           <Link to="/"><button className="btn btn-secondary">Back to Homepage</button></Link>
-            <div className="divider"></div>
+          <div className="divider"></div>
           <Link to="/my-list"><button className="btn btn-secondary">View My List</button></Link>
 
         </div>
@@ -152,8 +177,11 @@ class SearchPage extends Component {
 // export default SearchPage;
 function mapStateToProps(state) {
   console.log('Inside mapStateToProps', state);
-  return { movies: state.movies,
-            images: state.images}
+
+  return {
+    movies: state.movies,
+    images: state.images
+  }
 }
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchMovies, addMovie, fetchImage }, dispatch);
