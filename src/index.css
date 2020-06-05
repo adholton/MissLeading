@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  color: white;
+  font-family: "Roboto", sans-serif
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-image: url(https://mir-s3-cdn-cf.behance.net/project_modules/fs/1f1d4597362453.5ec37b932b4d6.png);
+  background-size: cover;
+}
+
+
+
+.navigation {
+  text-align: center;
+  /* background-image: url(//www.toptal.com/designers/subtlepatterns/patterns/symphony.png); */
+
+}
+
+.opacity {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background: rgba(0, 0, 0, 0.4)
+}
+
+
+.divider {
+    width: 20px;
+    height:auto;
+    display:inline-block;
 }
