@@ -34,6 +34,9 @@ class SearchPage extends Component {
     event.preventDefault();
     // We need to go and fetch movie data based on the search term
     // the state at this point is already updated from event handler of the user typing, so we invoke the fetch movies function (making the api call) and then resetting the state back back to it's original state (clearing term)
+    // const tableHead = this.refs.tableHead;
+    // console.log('Inside search button', tableHead);
+    // tableHead.style.visibility = 'visible';
     console.log(this.props.fetchImage(this.state.term));
     this.props.fetchImage(this.state.term);
     this.props.fetchMovies(this.state.term);
@@ -106,13 +109,13 @@ class SearchPage extends Component {
               onChange={this.onInputChange}
             />
             <span className="input-group-btn">
-              <button type="submit" className="btn btn-secondary">
+              <button type="submit" className="btn btn-primary">
                 Search</button>
             </span>
           </form>
           <br />          
           <table className="table table-hover search-table" ref="table">
-            <thead>
+            <thead ref="tableHead">
               <tr>
                 <th>Title</th>
                 <th>Two Female Characters</th>

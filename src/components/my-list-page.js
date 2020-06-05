@@ -44,6 +44,7 @@ class MyList extends Component {
     })
   }
   render() {
+    
     return (
 
       <div>
@@ -58,7 +59,7 @@ class MyList extends Component {
           <div className="col-md-8 offset-md-2 opacity">
             <h3>My List of Movies</h3>
             <table className="table table-hover">
-            <thead>
+            <thead id="table-head">
               <tr>
                 <th>Title</th>
                 <th>Two Female Characters</th>
@@ -76,6 +77,7 @@ class MyList extends Component {
 
       </div>
     )
+  
   }
 }
 function mapStateToProps(state) {
