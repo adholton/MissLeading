@@ -9,6 +9,7 @@ import reducers from "./reducers";
 import Home from "./components/home";
 import MyList from "./components/my-list-page"
 import './index.css';
+// import 'fontawesome';
 // import PassingMovies from "./components/passing-movies-page";
 import 'bootstrap/dist/css/bootstrap.css'
 //Let's start in index.js by setting up our router, Provider and middleware (we'll be using redux-promise again):

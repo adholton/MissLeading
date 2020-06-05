@@ -49,14 +49,14 @@ export function addMovie(movie) {
   }
 }
 
-export function fetchImage(searchParam) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=ca63e741c6718e480cec9a3c6682d81c&query=${searchParam}`;
-  const request = axios.get(url);
-  return {
-    type: FETCH_IMAGE,
-    payload: request
-  };
-}
+// export function fetchImage(searchParam) {
+//   const url = `https://api.themoviedb.org/3/search/movie?api_key=ca63e741c6718e480cec9a3c6682d81c&query=${searchParam}`;
+//   const request = axios.get(url);
+//   return {
+//     type: FETCH_IMAGE,
+//     payload: request
+//   };
+// }
 
 /* Example call to BT for a movie based on title:
 Example (for call to http://bechdeltest.com/api/v1/getMoviesByTitle?title=matrix):
