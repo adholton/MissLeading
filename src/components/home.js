@@ -15,10 +15,10 @@ class Home extends Component {
 
         <div className="navigation">
           <br />
-          <h1>Can You See Her?</h1>
+          <h1>MissLeading Movies</h1>
           <br />
 
-          <div className="opacity navigation">
+          <div className="opacity navigation col-md-8 offset-md-2">
             <h4>What is the Bechdel Test?</h4>
             <br />
             <p>The Bechdel test is a measure of the representation of women in fiction. It asks three simple questions...</p>
@@ -28,7 +28,7 @@ class Home extends Component {
             <p>Do they talk about something other than a man?</p>
             <p>Let's get started! </p>
             <br />
-            <div className="col-md-8 offset-md-2">
+            <div>
               <Link className="btn btn-outline-light" to="/search">
                 Search Movies
               </Link>

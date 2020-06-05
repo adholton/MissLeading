@@ -1,6 +1,7 @@
 * {
   color: white;
-  font-family: "Roboto", sans-serif
+  font-family: "Raleway", sans-serif;
+  /* font-family: "Lora", Serif; */
 }
 
 body {
@@ -12,8 +13,8 @@ body {
 
 .navigation {
   text-align: center;
-  
-  
+
+
   /* background-image: url(//www.toptal.com/designers/subtlepatterns/patterns/symphony.png); */
 
 }

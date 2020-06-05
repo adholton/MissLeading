@@ -98,7 +98,7 @@ class SearchPage extends Component {
         <div className="navigation">
 
           <br />
-          <h1 className="heading">Can You See Her?</h1>
+          <h1 className="heading">MissLeading Movies</h1>
           <br />
         </div>
 

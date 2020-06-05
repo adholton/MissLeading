@@ -50,7 +50,7 @@ class MyList extends Component {
         <div className="navigation">
           <div className="col-md-8 offset-md-2">
           <br/>
-            <h1 className="heading">Can You See Her?</h1>
+            <h1 className="heading">MissLeading Movies</h1>
             <br/>
           </div>
         </div>
@@ -68,7 +68,10 @@ class MyList extends Component {
             </thead>
             <tbody>{this.renderMovies()}</tbody>
           </table>
+          <Link to="/"><button className="btn btn-secondary">Back to Homepage</button></Link>
+          <div className="divider"></div>
         </div>
+
       </div>
     )
   }
