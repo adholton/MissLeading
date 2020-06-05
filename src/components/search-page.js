@@ -33,8 +33,8 @@ class SearchPage extends Component {
   //   console.log(movie)
   // }
   renderMovies() {
-    console.log(this.props.images.data);
-    const rating = this.props.movies.rating
+    console.log('image'+ this.props.images.data);
+    // const rating = this.props.movies.rating
     return _.map(this.props.movies, movie => {
 
       // if (rating === 0) {
