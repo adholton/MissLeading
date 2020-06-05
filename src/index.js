@@ -10,7 +10,7 @@ import Home from "./components/home";
 import MyList from "./components/my-list-page"
 import './index.css';
 // import 'fontawesome';
-// import PassingMovies from "./components/passing-movies-page";
+import RaceRep from "./components/race-representation-page";
 import 'bootstrap/dist/css/bootstrap.css'
 //Let's start in index.js by setting up our router, Provider and middleware (we'll be using redux-promise again):
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -21,8 +21,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Switch>
-          <Route path="/search" component={SearchPage} />
-          {/* <Route path="/passing" component={PassingMovies} /> */}
+          <Route  path="/search" component={SearchPage} />
+          <Route  path="/race-representation" component={RaceRep} />
           <Route path="/my-list" component={MyList} />
           <Route exact path="/" component={Home} />
         </Switch>
@@ -31,3 +31,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+

@@ -22,7 +22,7 @@ body {
 .opacity {
   padding-bottom: 10px;
   padding-top: 10px;
-  background: rgba(26, 22, 61, 0.9);
+  background: rgba(26, 22, 61, 0.95);
   border-radius: 10px;
 }
 
@@ -46,5 +46,4 @@ h3 {
   background-color: red;
 }
 
-   /* Glyphicons*/
-   /* @import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"); */
+

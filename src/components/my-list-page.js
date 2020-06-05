@@ -12,7 +12,7 @@ import { faCheckSquare, faCheckCircle, faTimes } from '@fortawesome/free-solid-s
 
 library.add(faCheckSquare, faCheckCircle, faTimes)
 class MyList extends Component {
-  
+
   renderMovies() {
     return this.props.movies.map(movie => {
       if (movie.rating == "0") {
@@ -69,6 +69,8 @@ class MyList extends Component {
             <tbody>{this.renderMovies()}</tbody>
           </table>
           <Link to="/"><button className="btn btn-secondary">Back to Homepage</button></Link>
+          <div className="divider"></div>
+          <Link to="/search"><button className="btn btn-secondary">Back to Search</button></Link>
           <div className="divider"></div>
         </div>
 

@@ -20,12 +20,16 @@ class SearchPage extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSearchButtonClick = this.onSearchButtonClick.bind(this);
     this.renderMovies = this.renderMovies.bind(this);
-    // this.addMovie = this.addMovie.bind(this);
+ 
   }
+
+
   onInputChange(event) {
     this.setState({ term: event.target.value });
     console.log(this.state);
   }
+
+
   onSearchButtonClick(event) {
     event.preventDefault();
     // We need to go and fetch movie data based on the search term
@@ -34,16 +38,18 @@ class SearchPage extends Component {
     this.props.fetchImage(this.state.term);
     this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
+   
   }
-  // addMovie(movie) {
-  //   console.log('Inside add movie')
-  //   console.log(movie)
-  // }
-  renderMovies() {
+
+
+ 
+
+
+   renderMovies() {
     console.log('Inside renderMovies, images:', this.props.images)
     console.log('Inside renderMovies, movies:', this.props.movies)
     console.log(this.props.images.data);
-    const rating = this.props.movies.rating
+   // const rating = this.props.movies.rating
     return _.map(this.props.movies, movie => {
       if (movie.rating == "0") {
         movie.icon1 = <FontAwesomeIcon icon={faTimes} size="2x" />
@@ -68,26 +74,14 @@ class SearchPage extends Component {
           <td>{movie.icon1}</td>
           <td>{movie.icon2}</td>
           <td>{movie.icon3}</td>
-          <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
+          <td><button className="btn btn-secondary" onClick={(event) => {
+            event.target.innerHTML = 'Added';
+            event.target.disabled = 'true';
+            return this.props.addMovie(movie)}}>Add To My List</button></td>
         </tr>
       );
     });
   }
-  /*
-  rating: 3
-  date: "2008-07-21 00:00:00"
-  id: 58
-  dubious: "0"
-  year: 2003
-  submitterid: 1
-  imdbid: "0234215"
-  visible: "1"
-  title: "Matrix Reloaded, The"
-
-
-  */
-
-
 
 
   render() {
@@ -116,9 +110,8 @@ class SearchPage extends Component {
                 Search</button>
             </span>
           </form>
-          <br />
-
-          <table className="table table-hover">
+          <br />          
+          <table className="table table-hover search-table" ref="table">
             <thead>
               <tr>
                 <th>Title</th>
@@ -128,7 +121,9 @@ class SearchPage extends Component {
               </tr>
             </thead>
             <tbody>{this.renderMovies()}</tbody>
-          </table>
+            
+          </table> 
+        
           <Link to="/"><button className="btn btn-secondary">Back to Homepage</button></Link>
           <div className="divider"></div>
           <Link to="/my-list"><button className="btn btn-secondary">View My List</button></Link>
