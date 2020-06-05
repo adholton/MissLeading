@@ -46,21 +46,21 @@ class SearchPage extends Component {
     const rating = this.props.movies.rating
     return _.map(this.props.movies, movie => {
       if (movie.rating == "0") {
-        movie.icon1 = <FontAwesomeIcon icon={faTimes} size="lg" />
-        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="lg" />
-        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="lg" />
+        movie.icon1 = <FontAwesomeIcon icon={faTimes} size="2x" />
+        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="2x" />
+        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
       } else if (movie.rating == "1") {
-        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="lg" />
-        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="lg" />
-        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="lg" />
+        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="2x" />
+        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
       } else if (movie.rating == "2") {
-        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="lg" />
-        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="lg" />
-        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="lg" />
+        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
       } else if (movie.rating == "3") {
-        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="lg"/>
-        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="lg"/>
-        movie.icon3 = <FontAwesomeIcon icon={faCheckCircle} size="lg"/>
+        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x"/>
+        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="2x"/>
+        movie.icon3 = <FontAwesomeIcon icon={faCheckCircle} size="2x"/>
       }
       return (
         <tr key={movie.id}>
@@ -87,42 +87,7 @@ class SearchPage extends Component {
 
   */
 
-  // if (rating === 0) {
-  //   return (<tr key={movie.id}>
-  //     <td>{movie.title}</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-  //   </tr>)
-  // } else if ( rating === 1) {
-  //   return (<tr key={movie.id}>
-  //     <td>{movie.title}</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-  //   </tr>)
-  // } else if ( rating === 2 ) {
-  //   return (<tr key={movie.id}>
-  //     <td>{movie.title}</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-  //   </tr>)
-  // } else if ( rating  === 3) {
-  //   return (<tr key={movie.id}>
-  //     <td>{movie.title}</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td>rating</td>
-  //     <td><button className="btn btn-secondary" onClick={() => this.props.addMovie(movie)}>Add To My List</button></td>
-  //   </tr>
-  // )
-  // }
 
-  //this was the original return that works
 
 
   render() {
@@ -186,4 +151,5 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchMovies, addMovie, fetchImage }, dispatch);
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

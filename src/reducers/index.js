@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import MovieReducer from "./reducer-movieSearch";
 import ImageReducer from "./reducer-imageSearch";
+import _ from "lodash";
 
 
 // import ImageReducer from "./reducer-movieSearch";
@@ -8,6 +9,7 @@ import ImageReducer from "./reducer-imageSearch";
 const rootReducer = combineReducers({
   images: ImageReducer,
   movies: MovieReducer,
+
   selectedMovies: function (state = [], action) {
     switch (action.type) {
       case "ADD_MOVIE":
@@ -19,6 +21,12 @@ const rootReducer = combineReducers({
             rating: action.payload.rating
           }
         ]
+
+      case "DELETE_MOVIE":
+        const newState = state.filter( movie => movie !== action.payload );
+     
+        return newState; 
+
       default:
         return state
     }
