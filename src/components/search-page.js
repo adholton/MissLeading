@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { fetchMovies, addMovie } from "../actions";
+import { fetchMovies, addMovie, fetchImage } from "../actions";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
@@ -29,7 +29,7 @@ class SearchPage extends Component {
 
     // We need to go and fetch movie data based on the search term
     // the state at this point is already updated from event handler of the user typing, so we invoke the fetch movies function (making the api call) and then resetting the state back back to it's original state (clearing term)
-    console.log(this.state.term);
+    this.props.fetchImage(this.state.term);
     this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
   }
@@ -41,6 +41,8 @@ class SearchPage extends Component {
 
 
   renderMovies() {
+    console.log('Inside renderMovies, images:', this.props.images)
+    console.log('Inside renderMovies, movies:', this.props.movies)
     return _.map(this.props.movies, movie => {
       return (
         <tr key={movie.id}>
@@ -120,12 +122,13 @@ class SearchPage extends Component {
 
 function mapStateToProps(state) {
   console.log('Inside mapStateToProps', state);
-  return { movies: state.movies }
+  return { movies: state.movies, 
+          images: state.images }
 }
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMovies, addMovie }, dispatch);
+  return bindActionCreators({ fetchMovies, addMovie, fetchImage }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

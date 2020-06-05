@@ -15,7 +15,7 @@ class MyList extends Component {
           <td>{movie.rating}</td>
           <td>{movie.rating}</td>
           <td>{movie.rating}</td>
-          <td><button className="btn btn-primary">Delete Movie</button></td>
+          <td><button className="btn btn-danger">Delete Movie</button></td>
         </tr>
       )
     })
@@ -24,7 +24,10 @@ class MyList extends Component {
 
   render() {
     return (
-      <table className="table table-hover">
+      <div>
+        <h1 className="heading">Can You See Her?</h1>
+        <h3>My List of Movies</h3>
+        <table className="table table-hover">
         <thead>
           <tr>
             <th>Title</th>
@@ -35,6 +38,7 @@ class MyList extends Component {
         </thead>
         <tbody>{this.renderMovies()}</tbody>
       </table>
+      </div>
     )
   }
 }
@@ -56,39 +60,3 @@ export default connect(mapStateToProps)(MyList);
 
 
 
-// class BookList extends Component {
-//   renderList() {
-//     return this.props.books.map(book => {
-//       return (
-//         <li
-//           key={book.title}
-//           onClick={() => this.props.selectBook(book)}
-//           className="list-group-item"
-//         >
-//           {book.title}
-//         </li>
-//       );
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <ul className="list-group col-sm-4">
-//         {this.renderList()}
-//       </ul>
-//     );
-//   }
-// }
-
-//taking state and turning into props
-//this is the function that allows this component to have access to the store. We are only allowing access to the books array for this component so we limit the return to just books: state.books
-//it seems the default is to put state as the parameter and redux will tie the reducers return (the store) to this state
-//it also tells React that when something in this state changes, to re-render
-// function mapStateToProps(state) {
-//   // Whatever is returned will show up as props
-//   // inside of BookList
-//   console.log(state)  //{books: Array(4), activeBook: null}
-//   return {
-//     books: state.books
-//   };
-// }
