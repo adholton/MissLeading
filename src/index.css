@@ -46,6 +46,22 @@ h3 {
   background-color: red;
 }
 
+.homePageDiv p {
+  font-size: 18px;
+}
+
+/* td {
+  text-align: center;
+  padding-top: 20px;
+} */
+
+/* svg {
+  margin: 0 auto;
+} */
+
+th {
+  text-align: center;
+}
 /* thead {
   visibility: hidden;
 }

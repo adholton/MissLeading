@@ -22,11 +22,13 @@ class Home extends Component {
             <h4>What is the Bechdel Test?</h4>
             <br />
             <p>The Bechdel test is a measure of the representation of women in fiction. It asks three simple questions...</p>
-
-            <p>Does the movie have two named female characters</p>
-            <p>Do these characters talk to one another?</p>
-            <p>Do they talk about something other than a man?</p>
+            
+            <h5>Does the movie have two named female characters?</h5>
+            <h5>Do these characters talk to one another?</h5>
+            <h5>Do they talk about something other than a man?</h5>
+            <br />
             <p>Let's get started! </p>
+            
             <br />
             <div>
               <Link className="btn btn-outline-light" to="/search">

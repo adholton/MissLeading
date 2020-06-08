@@ -20,7 +20,7 @@ class SearchPage extends Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.onSearchButtonClick = this.onSearchButtonClick.bind(this);
     this.renderMovies = this.renderMovies.bind(this);
- 
+
   }
 
 
@@ -41,51 +41,49 @@ class SearchPage extends Component {
     this.props.fetchImage(this.state.term);
     this.props.fetchMovies(this.state.term);
     this.setState({ term: '' });
-   
+
   }
 
 
- 
 
-
-   renderMovies() {
+  renderMovies() {
     console.log('Inside renderMovies, images:', this.props.images)
     console.log('Inside renderMovies, movies:', this.props.movies)
     console.log(this.props.images.data);
-   // const rating = this.props.movies.rating
-    return _.map(this.props.movies, movie => {
-      if (movie.rating == "0") {
-        movie.icon1 = <FontAwesomeIcon icon={faTimes} size="2x" />
-        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="2x" />
-        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
-      } else if (movie.rating == "1") {
-        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
-        movie.icon2 = <FontAwesomeIcon icon={faTimes} size="2x" />
-        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
-      } else if (movie.rating == "2") {
-        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
-        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
-        movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
-      } else if (movie.rating == "3") {
-        movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x"/>
-        movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="2x"/>
-        movie.icon3 = <FontAwesomeIcon icon={faCheckCircle} size="2x"/>
-      }
-      return (
-        <tr key={movie.id}>
-          <td>{movie.title}</td>
-          <td>{movie.icon1}</td>
-          <td>{movie.icon2}</td>
-          <td>{movie.icon3}</td>
-          <td><button className="btn btn-secondary" onClick={(event) => {
-            event.target.innerHTML = 'Added';
-            event.target.disabled = 'true';
-            return this.props.addMovie(movie)}}>Add To My List</button></td>
-        </tr>
-      );
-    });
+      return _.map(this.props.movies, movie => {
+        if (movie.rating == "0") {
+          movie.icon1 = <FontAwesomeIcon icon={faTimes} size="2x" />
+          movie.icon2 = <FontAwesomeIcon icon={faTimes} size="2x" />
+          movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
+        } else if (movie.rating == "1") {
+          movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+          movie.icon2 = <FontAwesomeIcon icon={faTimes} size="2x" />
+          movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
+        } else if (movie.rating == "2") {
+          movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+          movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+          movie.icon3 = <FontAwesomeIcon icon={faTimes} size="2x" />
+        } else if (movie.rating == "3") {
+          movie.icon1 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+          movie.icon2 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+          movie.icon3 = <FontAwesomeIcon icon={faCheckCircle} size="2x" />
+        }
+        return (
+          <tr key={movie.id}>
+            <td>{movie.title}</td>
+            <td>{movie.icon1}</td>
+            <td>{movie.icon2}</td>
+            <td>{movie.icon3}</td>
+            <td><button className="btn btn-secondary" onClick={(event) => {
+              event.target.innerHTML = 'Added';
+              event.target.disabled = 'true';
+              return this.props.addMovie(movie)
+            }}>Add To List</button></td>
+          </tr>
+        );
+      });
+    
   }
-
 
   render() {
     const { movies } = this.props;
@@ -109,11 +107,11 @@ class SearchPage extends Component {
               onChange={this.onInputChange}
             />
             <span className="input-group-btn">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-secondary">
                 Search</button>
             </span>
           </form>
-          <br />          
+          <br />
           <table className="table table-hover search-table" ref="table">
             <thead ref="tableHead">
               <tr>
@@ -124,9 +122,9 @@ class SearchPage extends Component {
               </tr>
             </thead>
             <tbody>{this.renderMovies()}</tbody>
-            
-          </table> 
-        
+
+          </table>
+
           <Link to="/"><button className="btn btn-secondary">Back to Homepage</button></Link>
           <div className="divider"></div>
           <Link to="/my-list"><button className="btn btn-secondary">View My List</button></Link>
